@@ -9,7 +9,11 @@ const ROOM2_IMG = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/8562842
 const SHOWER_IMG = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/856284347.jpg?k=65a6652bb13763c7ee3d368339f32f40ccb4069a66a35b8b2be7620fe3894540&o=";
 const RELAX_IMG = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/856284299.jpg?k=562b87308ab42d7ac85e7ee3166926b7dcdc94906eb1ec9ce56857c94a3b81c4&o=";
 
-const BOOKING_URL = "https://www.booking.com/hotel/za/matjulu-kruger-lodge.html";
+const WHATSAPP_NUMBER = "27826764239";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hi Matjulu Kruger Lodge, I'd like to book a stay. Could you share availability and rates?"
+)}`;
+const BOOKING_URL = WHATSAPP_URL;
 
 export const Route = createFileRoute("/")({
   head: () => ({

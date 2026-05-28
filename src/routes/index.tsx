@@ -241,7 +241,7 @@ function Rooms() {
                   <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current">
                     <path d="M19.11 4.91A10 10 0 0 0 2.05 15l-1.3 4.75a1 1 0 0 0 1.22 1.22L6.8 19.7a10 10 0 0 0 12.31-14.79ZM12.05 19.5a8.5 8.5 0 0 1-4.33-1.18l-.31-.18-3.36.88.9-3.27-.2-.33A8.5 8.5 0 1 1 12.05 19.5Zm4.66-6.36c-.26-.13-1.5-.74-1.74-.82s-.4-.13-.57.13-.65.82-.8 1-.3.19-.55.06a7 7 0 0 1-2.06-1.27 7.74 7.74 0 0 1-1.43-1.78c-.15-.26 0-.4.11-.53s.26-.3.39-.45a1.75 1.75 0 0 0 .26-.43.48.48 0 0 0 0-.46c-.06-.13-.57-1.37-.78-1.88s-.42-.43-.57-.44h-.49a.94.94 0 0 0-.68.32 2.86 2.86 0 0 0-.89 2.12 5 5 0 0 0 1 2.64 11.41 11.41 0 0 0 4.37 3.85 14.78 14.78 0 0 0 1.46.54 3.51 3.51 0 0 0 1.61.1 2.63 2.63 0 0 0 1.72-1.21 2.13 2.13 0 0 0 .15-1.21c-.07-.11-.24-.18-.5-.31Z" />
                   </svg>
-                  Book on WhatsApp
+                  Reserve
                 </a>
               </div>
             </article>
@@ -363,7 +363,7 @@ function Contact() {
             rel="noreferrer"
             className="mt-10 inline-block bg-primary px-7 py-4 text-[0.72rem] uppercase tracking-[0.28em] text-primary-foreground transition hover:bg-primary/90"
           >
-            Book on WhatsApp
+            Reserve
           </a>
         </div>
 

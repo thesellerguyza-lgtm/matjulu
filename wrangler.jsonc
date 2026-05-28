@@ -5,11 +5,11 @@
   "observability": {
     "enabled": true
   },
-  "main": ".output/server/index.mjs",
+  "main": "dist/server/index.js",
   "compatibility_flags": [
     "nodejs_compat"
   ],
   "assets": {
-    "directory": ".output/public"
+    "directory": "dist/client"
   }
 }

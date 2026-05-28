@@ -9,7 +9,11 @@ const ROOM2_IMG = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/8562842
 const SHOWER_IMG = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/856284347.jpg?k=65a6652bb13763c7ee3d368339f32f40ccb4069a66a35b8b2be7620fe3894540&o=";
 const RELAX_IMG = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/856284299.jpg?k=562b87308ab42d7ac85e7ee3166926b7dcdc94906eb1ec9ce56857c94a3b81c4&o=";
 
-const BOOKING_URL = "https://www.booking.com/hotel/za/matjulu-kruger-lodge.html";
+const WHATSAPP_NUMBER = "27826764239";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hi Matjulu Kruger Lodge, I'd like to book a stay. Could you share availability and rates?"
+)}`;
+const BOOKING_URL = WHATSAPP_URL;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -112,7 +116,7 @@ function Intro() {
           <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-border pt-8 text-sm">
             <div>
               <dt className="eyebrow text-muted-foreground">From</dt>
-              <dd className="mt-2 font-serif text-2xl">$46<span className="text-sm text-muted-foreground">/night</span></dd>
+              <dd className="mt-2 font-serif text-2xl">R850<span className="text-sm text-muted-foreground">/night</span></dd>
             </div>
             <div>
               <dt className="eyebrow text-muted-foreground">To Kruger</dt>
@@ -131,10 +135,10 @@ function Intro() {
 
 type Room = { name: string; size: string; bed: string; price: string; img: string; tag: string };
 const ROOMS: Room[] = [
-  { name: "Suite with Mountain View", tag: "Most loved", bed: "1 queen bed", size: "388 ft²", price: "$51", img: HERO_IMG },
-  { name: "Deluxe Suite", tag: "Spacious", bed: "Queen bed · terrace", size: "388 ft²", price: "$56", img: BATH_IMG },
-  { name: "Single Mountain Suite", tag: "For solo travellers", bed: "Twin bed", size: "320 ft²", price: "$46", img: ROOM2_IMG },
-  { name: "Premier Single Suite", tag: "Quiet wing", bed: "Twin bed · garden", size: "340 ft²", price: "$51", img: RELAX_IMG },
+  { name: "Suite with Mountain View", tag: "Most loved", bed: "1 queen bed", size: "388 ft²", price: "R950", img: HERO_IMG },
+  { name: "Deluxe Suite", tag: "Spacious", bed: "Queen bed · terrace", size: "388 ft²", price: "R1 050", img: BATH_IMG },
+  { name: "Single Mountain Suite", tag: "For solo travellers", bed: "Twin bed", size: "320 ft²", price: "R850", img: ROOM2_IMG },
+  { name: "Premier Single Suite", tag: "Quiet wing", bed: "Twin bed · garden", size: "340 ft²", price: "R950", img: RELAX_IMG },
 ];
 
 function Rooms() {
@@ -293,7 +297,7 @@ function Contact() {
             rel="noreferrer"
             className="mt-10 inline-block bg-primary px-7 py-4 text-[0.72rem] uppercase tracking-[0.28em] text-primary-foreground transition hover:bg-primary/90"
           >
-            Reserve on Booking.com
+            Book on WhatsApp
           </a>
         </div>
 
@@ -313,6 +317,17 @@ function Contact() {
           <div>
             <dt className="eyebrow text-muted-foreground">Check-out</dt>
             <dd className="mt-3 font-serif text-xl">Until 11:00</dd>
+          </div>
+          <div className="sm:col-span-2">
+            <dt className="eyebrow text-muted-foreground">WhatsApp & calls</dt>
+            <dd className="mt-3 font-serif text-xl">
+              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="underline-offset-4 hover:underline">
+                +27 82 676 4239
+              </a>
+              <span className="block text-sm font-sans text-muted-foreground mt-1">
+                matjulukrugerlodge@gmail.com
+              </span>
+            </dd>
           </div>
         </dl>
       </div>

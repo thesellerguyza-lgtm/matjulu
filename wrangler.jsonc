@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "matjulu",
+  "compatibility_date": "2026-05-28",
+  "observability": {
+    "enabled": true
+  },
+  "main": ".output/server/index.mjs",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "directory": ".output/public"
+  }
+}

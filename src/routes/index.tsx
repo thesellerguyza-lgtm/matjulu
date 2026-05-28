@@ -1,4 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const HERO_IMG = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/856283034.jpg?k=16381c4e203051cacfe284077e99d1f3842624b10e0c248052b95874ca5e01a2&o=";
 const BATH_IMG = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/856284368.jpg?k=896e79f70c6d6d3a1ab9eb6a8296cd64d25746f133b719061f0f96add3b90626&o=";
@@ -133,13 +140,46 @@ function Intro() {
   );
 }
 
-type Room = { name: string; size: string; bed: string; price: string; img: string; tag: string };
+type Room = { name: string; size: string; bed: string; price: string; images: string[]; tag: string };
 const ROOMS: Room[] = [
-  { name: "Suite with Mountain View", tag: "Most loved", bed: "1 queen bed", size: "388 ft²", price: "R950", img: HERO_IMG },
-  { name: "Deluxe Suite", tag: "Spacious", bed: "Queen bed · terrace", size: "388 ft²", price: "R1 050", img: BATH_IMG },
-  { name: "Single Mountain Suite", tag: "For solo travellers", bed: "Twin bed", size: "320 ft²", price: "R850", img: ROOM2_IMG },
-  { name: "Premier Single Suite", tag: "Quiet wing", bed: "Twin bed · garden", size: "340 ft²", price: "R950", img: RELAX_IMG },
+  {
+    name: "Suite with Mountain View",
+    tag: "Most loved",
+    bed: "1 queen bed",
+    size: "388 ft²",
+    price: "R950",
+    images: [HERO_IMG, BATH_IMG, SHOWER_IMG, RELAX_IMG],
+  },
+  {
+    name: "Deluxe Suite",
+    tag: "Spacious",
+    bed: "Queen bed · terrace",
+    size: "388 ft²",
+    price: "R1 050",
+    images: [BATH_IMG, VILLA_IMG, ROOM2_IMG, POOL_IMG],
+  },
+  {
+    name: "Single Mountain Suite",
+    tag: "For solo travellers",
+    bed: "Twin bed",
+    size: "320 ft²",
+    price: "R850",
+    images: [ROOM2_IMG, RELAX_IMG, SHOWER_IMG, HERO_IMG],
+  },
+  {
+    name: "Premier Single Suite",
+    tag: "Quiet wing",
+    bed: "Twin bed · garden",
+    size: "340 ft²",
+    price: "R950",
+    images: [RELAX_IMG, BAR_IMG, VILLA_IMG, BATH_IMG],
+  },
 ];
+
+function whatsappForRoom(room: Room) {
+  const msg = `Hi Matjulu Kruger Lodge, I'd like to book the ${room.name} (${room.price}/night). Could you share availability?`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+}
 
 function Rooms() {
   return (
@@ -157,26 +197,52 @@ function Rooms() {
 
         <div className="mt-14 grid gap-8 md:grid-cols-2">
           {ROOMS.map((r) => (
-            <article key={r.name} className="group bg-card">
-              <div className="relative aspect-[5/4] overflow-hidden">
-                <img
-                  src={r.img}
-                  alt={r.name}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
-                />
-                <span className="absolute left-4 top-4 bg-background/90 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-foreground">
+            <article key={r.name} className="group flex flex-col bg-card">
+              <div className="relative">
+                <Carousel opts={{ loop: true }} className="w-full">
+                  <CarouselContent>
+                    {r.images.map((src, i) => (
+                      <CarouselItem key={src + i}>
+                        <div className="relative aspect-[5/4] overflow-hidden">
+                          <img
+                            src={src}
+                            alt={`${r.name} — view ${i + 1}`}
+                            loading="lazy"
+                            className="h-full w-full object-cover"
+                          />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="left-3 h-9 w-9 border-0 bg-background/80 text-foreground hover:bg-background" />
+                  <CarouselNext className="right-3 h-9 w-9 border-0 bg-background/80 text-foreground hover:bg-background" />
+                </Carousel>
+                <span className="pointer-events-none absolute left-4 top-4 z-10 bg-background/90 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-foreground">
                   {r.tag}
                 </span>
               </div>
-              <div className="flex items-start justify-between gap-6 p-6 md:p-8">
-                <div>
-                  <h3 className="font-serif text-2xl">{r.name}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{r.bed} · {r.size}</p>
+              <div className="flex flex-1 flex-col gap-6 p-6 md:p-8">
+                <div className="flex items-start justify-between gap-6">
+                  <div>
+                    <h3 className="font-serif text-2xl">{r.name}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground">{r.bed} · {r.size}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="font-serif text-2xl">{r.price}</p>
+                    <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">per night</p>
+                  </div>
                 </div>
-                <div className="text-right">
-                  <p className="font-serif text-2xl">{r.price}</p>
-                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">per night</p>
-                </div>
+                <a
+                  href={whatsappForRoom(r)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 bg-primary px-6 py-3.5 text-[0.7rem] uppercase tracking-[0.24em] text-primary-foreground transition hover:bg-primary/90 sm:w-auto sm:self-start"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current">
+                    <path d="M19.11 4.91A10 10 0 0 0 2.05 15l-1.3 4.75a1 1 0 0 0 1.22 1.22L6.8 19.7a10 10 0 0 0 12.31-14.79ZM12.05 19.5a8.5 8.5 0 0 1-4.33-1.18l-.31-.18-3.36.88.9-3.27-.2-.33A8.5 8.5 0 1 1 12.05 19.5Zm4.66-6.36c-.26-.13-1.5-.74-1.74-.82s-.4-.13-.57.13-.65.82-.8 1-.3.19-.55.06a7 7 0 0 1-2.06-1.27 7.74 7.74 0 0 1-1.43-1.78c-.15-.26 0-.4.11-.53s.26-.3.39-.45a1.75 1.75 0 0 0 .26-.43.48.48 0 0 0 0-.46c-.06-.13-.57-1.37-.78-1.88s-.42-.43-.57-.44h-.49a.94.94 0 0 0-.68.32 2.86 2.86 0 0 0-.89 2.12 5 5 0 0 0 1 2.64 11.41 11.41 0 0 0 4.37 3.85 14.78 14.78 0 0 0 1.46.54 3.51 3.51 0 0 0 1.61.1 2.63 2.63 0 0 0 1.72-1.21 2.13 2.13 0 0 0 .15-1.21c-.07-.11-.24-.18-.5-.31Z" />
+                  </svg>
+                  Book on WhatsApp
+                </a>
               </div>
             </article>
           ))}

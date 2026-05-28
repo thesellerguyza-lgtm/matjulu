@@ -363,9 +363,8 @@ function Contact() {
             rel="noreferrer"
             className="mt-10 inline-block bg-primary px-7 py-4 text-[0.72rem] uppercase tracking-[0.28em] text-primary-foreground transition hover:bg-primary/90"
           >
-            Book on WhatsApp
+            Reserve
           </a>
-        </div>
 
         <dl className="grid grid-cols-1 gap-y-8 border-t border-border pt-8 sm:grid-cols-2">
           <div>

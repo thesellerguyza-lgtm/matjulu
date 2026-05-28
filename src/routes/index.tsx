@@ -318,6 +318,17 @@ function Contact() {
             <dt className="eyebrow text-muted-foreground">Check-out</dt>
             <dd className="mt-3 font-serif text-xl">Until 11:00</dd>
           </div>
+          <div className="sm:col-span-2">
+            <dt className="eyebrow text-muted-foreground">WhatsApp & calls</dt>
+            <dd className="mt-3 font-serif text-xl">
+              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="underline-offset-4 hover:underline">
+                +27 82 676 4239
+              </a>
+              <span className="block text-sm font-sans text-muted-foreground mt-1">
+                matjulukrugerlodge@gmail.com
+              </span>
+            </dd>
+          </div>
         </dl>
       </div>
     </section>

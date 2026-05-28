@@ -365,6 +365,7 @@ function Contact() {
           >
             Reserve
           </a>
+        </div>
 
         <dl className="grid grid-cols-1 gap-y-8 border-t border-border pt-8 sm:grid-cols-2">
           <div>

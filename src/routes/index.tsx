@@ -116,7 +116,7 @@ function Intro() {
           <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-border pt-8 text-sm">
             <div>
               <dt className="eyebrow text-muted-foreground">From</dt>
-              <dd className="mt-2 font-serif text-2xl">$46<span className="text-sm text-muted-foreground">/night</span></dd>
+              <dd className="mt-2 font-serif text-2xl">R850<span className="text-sm text-muted-foreground">/night</span></dd>
             </div>
             <div>
               <dt className="eyebrow text-muted-foreground">To Kruger</dt>
@@ -135,10 +135,10 @@ function Intro() {
 
 type Room = { name: string; size: string; bed: string; price: string; img: string; tag: string };
 const ROOMS: Room[] = [
-  { name: "Suite with Mountain View", tag: "Most loved", bed: "1 queen bed", size: "388 ft²", price: "$51", img: HERO_IMG },
-  { name: "Deluxe Suite", tag: "Spacious", bed: "Queen bed · terrace", size: "388 ft²", price: "$56", img: BATH_IMG },
-  { name: "Single Mountain Suite", tag: "For solo travellers", bed: "Twin bed", size: "320 ft²", price: "$46", img: ROOM2_IMG },
-  { name: "Premier Single Suite", tag: "Quiet wing", bed: "Twin bed · garden", size: "340 ft²", price: "$51", img: RELAX_IMG },
+  { name: "Suite with Mountain View", tag: "Most loved", bed: "1 queen bed", size: "388 ft²", price: "R950", img: HERO_IMG },
+  { name: "Deluxe Suite", tag: "Spacious", bed: "Queen bed · terrace", size: "388 ft²", price: "R1 050", img: BATH_IMG },
+  { name: "Single Mountain Suite", tag: "For solo travellers", bed: "Twin bed", size: "320 ft²", price: "R850", img: ROOM2_IMG },
+  { name: "Premier Single Suite", tag: "Quiet wing", bed: "Twin bed · garden", size: "340 ft²", price: "R950", img: RELAX_IMG },
 ];
 
 function Rooms() {
@@ -297,7 +297,7 @@ function Contact() {
             rel="noreferrer"
             className="mt-10 inline-block bg-primary px-7 py-4 text-[0.72rem] uppercase tracking-[0.28em] text-primary-foreground transition hover:bg-primary/90"
           >
-            Reserve on Booking.com
+            Book on WhatsApp
           </a>
         </div>
 
